@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.TestTools;
 
-namespace BananaParty.BehaviorTree.Tests
+namespace Retrover.BehaviorTree.Tests
 {
     public class TimerTests
     {

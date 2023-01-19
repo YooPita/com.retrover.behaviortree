@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Linq;
 
-namespace BananaParty.BehaviorTree.Tests
+namespace Retrover.BehaviorTree.Tests
 {
     public class SelectorNodeTests
     {

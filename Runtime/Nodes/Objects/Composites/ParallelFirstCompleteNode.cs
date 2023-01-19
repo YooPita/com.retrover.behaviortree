@@ -1,4 +1,4 @@
-﻿namespace BananaParty.BehaviorTree
+﻿namespace Retrover.BehaviorTree
 {
     /// <summary>
     /// Sequentially runs multiple nodes in parallel and returns as soon as first child completes.

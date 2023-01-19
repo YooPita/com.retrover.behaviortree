@@ -1,4 +1,4 @@
-﻿namespace BananaParty.BehaviorTree
+﻿namespace Retrover.BehaviorTree
 {
     /// <summary>
     /// Displays the specified node as text.

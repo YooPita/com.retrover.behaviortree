@@ -1,10 +1,10 @@
 {
-    "name": "BananaParty.BehaviorTree.Tests",
+    "name": "Retrover.BehaviorTree.Tests",
     "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "BananaParty.BehaviorTree"
+        "Retrover.BehaviorTree"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

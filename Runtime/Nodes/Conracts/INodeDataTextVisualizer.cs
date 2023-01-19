@@ -1,4 +1,4 @@
-﻿namespace BananaParty.BehaviorTree
+﻿namespace Retrover.BehaviorTree
 {
     public interface INodeDataTextVisualizer
     {

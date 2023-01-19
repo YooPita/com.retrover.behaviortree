@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BananaParty.BehaviorTree
+namespace Retrover.BehaviorTree
 {
     public class Timer : ITimer
     {

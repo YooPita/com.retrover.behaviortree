@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BananaParty.BehaviorTree
+namespace Retrover.BehaviorTree
 {
     public abstract class RollbackChainHandlerNode : BehaviorNode, IRollbackNode
     {

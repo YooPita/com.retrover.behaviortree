@@ -1,4 +1,4 @@
-﻿namespace BananaParty.BehaviorTree
+﻿namespace Retrover.BehaviorTree
 {
     /// <summary>
     /// If Success or Running then Tick Next else Return "same as child".

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace BananaParty.BehaviorTree
+namespace Retrover.BehaviorTree
 {
     public class TraceErrorNode : BehaviorNode
     {

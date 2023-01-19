@@ -1,4 +1,4 @@
-﻿namespace BananaParty.BehaviorTree
+﻿namespace Retrover.BehaviorTree
 {
     /// <summary>
     /// Restarts the tree until it completes successfully. Returns true if successful.

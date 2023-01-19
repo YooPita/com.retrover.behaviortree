@@ -1,4 +1,4 @@
-﻿namespace BananaParty.BehaviorTree
+﻿namespace Retrover.BehaviorTree
 {
     /// <summary>
     /// Inverts the result. If the result is Success, then return Failure and vice versa.

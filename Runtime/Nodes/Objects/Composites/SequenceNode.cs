@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BananaParty.BehaviorTree
+namespace Retrover.BehaviorTree
 {
     /// <summary>
     /// If Success then Tick Next else Return "same as child".
