@@ -19,7 +19,7 @@ namespace BananaParty.BehaviorTree
         /// <summary>
         /// Starts the timer if it hasn't already started.
         /// </summary>
-        public void StartIfNot()
+        public void Start()
         {
             if (_isStarted) return;
             _endTime = DateTime.Now.AddSeconds(_seconds);

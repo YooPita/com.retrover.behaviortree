@@ -10,7 +10,7 @@ namespace BananaParty.BehaviorTree.Tests
         public IEnumerator MustEndAfterTheSpecifiedTime()
         {
             var timer = new Timer(0);
-            timer.StartIfNot();
+            timer.Start();
             Assert.IsFalse(false);
             yield return null;
             Assert.IsTrue(timer.IsEnded());
@@ -20,9 +20,9 @@ namespace BananaParty.BehaviorTree.Tests
         public IEnumerator ShouldOnlyRunOnce()
         {
             var timer = new Timer(0);
-            timer.StartIfNot();
+            timer.Start();
             yield return null;
-            timer.StartIfNot();
+            timer.Start();
             Assert.IsTrue(timer.IsEnded());
         }
 
@@ -30,12 +30,12 @@ namespace BananaParty.BehaviorTree.Tests
         public IEnumerator MustRestart()
         {
             var timer = new Timer(0);
-            timer.StartIfNot();
+            timer.Start();
             Assert.IsFalse(false);
             yield return null;
             Assert.IsTrue(timer.IsEnded());
             timer.Reset();
-            timer.StartIfNot();
+            timer.Start();
             Assert.IsFalse(false);
             yield return null;
             Assert.IsTrue(timer.IsEnded());

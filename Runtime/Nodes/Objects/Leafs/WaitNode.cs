@@ -16,7 +16,7 @@
 
         protected override BehaviorNodeStatus OnExecute()
         {
-            _timer.StartIfNot();
+            _timer.Start();
             return _timer.IsEnded() ? BehaviorNodeStatus.Success : BehaviorNodeStatus.Running;
         }
 

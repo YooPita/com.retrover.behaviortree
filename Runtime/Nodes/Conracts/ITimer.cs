@@ -2,7 +2,7 @@
 {
     public interface ITimer
     {
-        void StartIfNot();
+        void Start();
         void Reset();
         bool IsEnded();
     }
