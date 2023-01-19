@@ -7,7 +7,7 @@ namespace BananaParty.BehaviorTree
         private ITextDisplay _display;
         private INodeDataTextVisualizer _nodeVisualizer;
         private string _currentBranch = string.Empty;
-        private List<string> _branches = new List<string>();
+        private List<string> _branches = new();
         private bool _treeIsNotGenerated = true;
 
         /// <summary>
@@ -59,8 +59,8 @@ namespace BananaParty.BehaviorTree
         private string DisplayNodes(BehaviorNodeVisualizationData node, IEnumerator<string> tree)
         {
             tree.MoveNext();
-            var currentBranch = tree.Current;
-            var result = currentBranch + _nodeVisualizer.Display(node) + '\n';
+            string currentBranch = tree.Current;
+            string result = currentBranch + _nodeVisualizer.Display(node) + '\n';
             if (node.ChildNode != null) result += DisplayNodes(node.ChildNode, tree);
             if (node.NextNode != null) result += DisplayNodes(node.NextNode, tree);
             return result;

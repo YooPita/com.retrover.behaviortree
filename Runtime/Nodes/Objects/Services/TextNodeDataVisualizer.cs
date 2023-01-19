@@ -7,9 +7,9 @@
     {
         public string Display(BehaviorNodeVisualizationData node)
         {
-            var type = DisplayType(node.Type);
-            var state = DisplayStatus(node.State);
-            var name = node.Name;
+            string type = DisplayType(node.Type);
+            string state = DisplayStatus(node.State);
+            string name = node.Name;
 
             if (string.IsNullOrEmpty(type))
             {

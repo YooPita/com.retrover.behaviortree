@@ -8,7 +8,7 @@ namespace BananaParty.BehaviorTree
 
         protected override BehaviorNodeType Type => BehaviorNodeType.Selector;
 
-        private List<IBehaviorNode> _failureNodes = new();
+        private readonly List<IBehaviorNode> _failureNodes = new();
 
         public RollbackSelectorNode(IRollbackNode[] childNodes, bool isContinuous = true) : base(childNodes, isContinuous)
         {
@@ -34,7 +34,7 @@ namespace BananaParty.BehaviorTree
             _failureNodes.Clear();
             for (int i = 0; i < ChildNodes.Length; i++)
             {
-                var resultStatus = ChildNodes[i].Execute();
+                BehaviorNodeStatus resultStatus = ChildNodes[i].Execute();
                 if (resultStatus == BehaviorNodeStatus.Failure)
                 {
                     _failureNodes.Add(ChildNodes[i]);

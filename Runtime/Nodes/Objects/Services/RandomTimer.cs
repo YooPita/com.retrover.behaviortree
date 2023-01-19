@@ -58,9 +58,7 @@ namespace BananaParty.BehaviorTree
 
         private void Swap(ref double x, ref double y)
         {
-            double temp = x;
-            x = y;
-            y = temp;
+            (y, x) = (x, y);
         }
     }
 }

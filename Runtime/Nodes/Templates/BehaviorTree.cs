@@ -2,7 +2,7 @@
 {
     public abstract class BehaviorTree : IBehaviorTree
     {
-        private IBehaviorNode _node;
+        private readonly IBehaviorNode _node;
         private IBehaviorTreeVisualizer _visualizer;
 
         public BehaviorTree(IBehaviorNode node, IBehaviorTreeVisualizer visualizer)

@@ -8,8 +8,8 @@
     {
         public string Display(BehaviorNodeVisualizationData node)
         {
-            var color = DisplayColor(node.State);
-            var displayedNode = DisplayNode(node);
+            string color = DisplayColor(node.State);
+            string displayedNode = DisplayNode(node);
             if (string.IsNullOrEmpty(color)) return displayedNode;
             return $"<color={color}>{displayedNode}</color>";
         }
@@ -56,12 +56,12 @@
 
         private string DisplayNode(BehaviorNodeVisualizationData node)
         {
-            var type = DisplayType(node.Type);
-            var state = DisplayStatus(node.State);
-            var name = node.Name;
+            string type = DisplayType(node.Type);
+            string state = DisplayStatus(node.State);
+            string name = node.Name;
 
-            var stateIsNull = string.IsNullOrEmpty(state);
-            var typeIsNull = string.IsNullOrEmpty(type);
+            bool stateIsNull = string.IsNullOrEmpty(state);
+            bool typeIsNull = string.IsNullOrEmpty(type);
 
             if (stateIsNull && typeIsNull)
                 return $" {name}";

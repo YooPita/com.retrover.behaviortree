@@ -15,7 +15,7 @@
         {
             for (int i = 0; i < ChildNodes.Length; i++)
             {
-                var resultStatus = ChildNodes[i].Execute();
+                BehaviorNodeStatus resultStatus = ChildNodes[i].Execute();
                 if (resultStatus != BehaviorNodeStatus.Running)
                     return resultStatus;
             }

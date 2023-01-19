@@ -16,7 +16,7 @@
 
         protected override BehaviorNodeStatus OnExecute()
         {
-            return (int)_statusToReturn > 0 ? _statusToReturn : BehaviorNodeStatus.Success;
+            return _statusToReturn > 0 ? _statusToReturn : BehaviorNodeStatus.Success;
         }
     }
 }

@@ -22,7 +22,7 @@ namespace BananaParty.BehaviorTree
             _successNodes.Clear();
             for (int i = 0; i < ChildNodes.Length; i++)
             {
-                var resultStatus = ChildNodes[i].Execute();
+                BehaviorNodeStatus resultStatus = ChildNodes[i].Execute();
                 if (resultStatus == BehaviorNodeStatus.Success)
                 {
                     _successNodes.Add(ChildNodes[i]);

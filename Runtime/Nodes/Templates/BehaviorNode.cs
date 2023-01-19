@@ -3,13 +3,13 @@
     public abstract class BehaviorNode : IBehaviorNode
     {
         protected BehaviorNodeStatus _state = BehaviorNodeStatus.Idle;
-        private bool IsNotFinished => (int)_state < 2;
+        private bool IsFinished => (int)_state > 1;
         protected virtual BehaviorNodeType Type => BehaviorNodeType.Leaf;
         protected abstract string Name { get; }
 
         public BehaviorNodeStatus Execute()
         {
-            if (IsNotFinished)
+            if (!IsFinished)
                 _state = PublishFinishedState(OnExecute());
             return _state;
         }
