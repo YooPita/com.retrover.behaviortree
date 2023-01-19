@@ -1,51 +1,52 @@
-﻿namespace BananaParty.BehaviorTree
+﻿using System.Collections.Generic;
+
+namespace BananaParty.BehaviorTree
 {
     public abstract class RollbackChainHandlerNode : BehaviorNode, IRollbackNode
     {
         protected bool IsContinuous { private set; get; }
 
-        protected IRollbackChainNode _chain;
+        protected IRollbackNode[] ChildNodes { private set; get; }
 
         public RollbackChainHandlerNode(IRollbackNode[] childNodes, bool isContinuous = true)
         {
             IsContinuous = isContinuous;
-            _chain = InstantiateChainNode(childNodes[0]);
-            AddNodesToChain(childNodes);
+            ChildNodes = childNodes;
         }
 
         protected RollbackChainHandlerNode() { }
 
         public override BehaviorNodeVisualizationData GetVisualizationData()
         {
+            List<BehaviorNodeVisualizationData> chain = new List<BehaviorNodeVisualizationData>();
+
+            for (int i = 0; i < ChildNodes.Length; i++)
+                chain.Add(ChildNodes[i].GetVisualizationData());
+
+            for (int i = 0; i < chain.Count - 1; i++)
+                chain[i].NextNode = chain[i + 1];
+
             return new BehaviorNodeVisualizationData()
             {
                 Name = Name,
                 State = _state,
                 Type = Type,
-                ChildNode = _chain.GetVisualizationData(),
+                ChildNode = chain[0],
             };
         }
 
         public abstract IRollbackNode Clone();
 
-        protected abstract IRollbackChainNode InstantiateChainNode(IRollbackNode node);
-
-        protected override BehaviorNodeStatus OnExecute()
-        {
-            return _chain.Execute();
-        }
-
         protected override void OnRestart()
         {
-            _chain.Restart();
+            for (int i = 0; i < ChildNodes.Length; i++)
+                ChildNodes[i].Restart();
         }
 
-        private void AddNodesToChain(IRollbackNode[] childNodes)
+        protected void RestartNodesFromIndex(int restartIndex)
         {
-            for (int i = 1; i < childNodes.Length; i++)
-            {
-                _chain.AddNextChainLink(InstantiateChainNode(childNodes[i]));
-            }
+            for (int i = restartIndex; i < ChildNodes.Length; i++)
+                ChildNodes[i].Restart();
         }
     }
 }

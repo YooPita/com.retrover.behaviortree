@@ -66,11 +66,16 @@ namespace BananaParty.BehaviorTree.Tests
             Assert.IsTrue(resultStatus == BehaviorNodeStatus.Running);
             Assert.IsTrue(testNodes[0].ExecutionCount == 1 && testNodes[1].ExecutionCount == 1);
 
+            resultStatus = node.Execute();
+
+            Assert.IsTrue(resultStatus == BehaviorNodeStatus.Running);
+            Assert.IsTrue(testNodes[0].ExecutionCount == 2 && testNodes[1].ExecutionCount == 2);
+
             testNodes[0].ResultStatus = BehaviorNodeStatus.Success;
             resultStatus = node.Execute();
 
             Assert.IsTrue(resultStatus == BehaviorNodeStatus.Success);
-            Assert.IsTrue(testNodes[0].ExecutionCount == 2 && testNodes[1].ExecutionCount == 1);
+            Assert.IsTrue(testNodes[0].ExecutionCount == 3 && testNodes[1].ExecutionCount == 2);
         }
 
         [Test]

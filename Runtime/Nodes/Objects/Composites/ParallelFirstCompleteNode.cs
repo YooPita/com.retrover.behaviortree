@@ -7,13 +7,19 @@
     {
         protected override string Name => "Parallel First Complete Node";
 
-        protected override BehaviorNodeType Type => BehaviorNodeType.ParallelFirstComplete;
+        protected override BehaviorNodeType Type => BehaviorNodeType.Decorator;
 
         public ParallelFirstCompleteNode(IBehaviorNode[] childNodes) : base(childNodes) { }
 
-        protected override IChainNode InstantiateChainNode(IBehaviorNode node)
+        protected override BehaviorNodeStatus OnExecute()
         {
-            return new ParallelFirstCompleteChainNode(node);
+            for (int i = 0; i < ChildNodes.Length; i++)
+            {
+                var resultStatus = ChildNodes[i].Execute();
+                if (resultStatus != BehaviorNodeStatus.Running)
+                    return resultStatus;
+            }
+            return BehaviorNodeStatus.Running;
         }
     }
 }

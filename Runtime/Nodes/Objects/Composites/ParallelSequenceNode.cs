@@ -11,9 +11,23 @@
 
         public ParallelSequenceNode(IBehaviorNode[] childNodes) : base(childNodes) { }
 
-        protected override IChainNode InstantiateChainNode(IBehaviorNode node)
+        protected override BehaviorNodeStatus OnExecute()
         {
-            return new ParallelChainNode(node, false);
+            BehaviorNodeStatus result = BehaviorNodeStatus.Success;
+            for (int i = 0; i < ChildNodes.Length; i++)
+            {
+                var resultStatus = ChildNodes[i].Execute();
+
+                if (resultStatus == BehaviorNodeStatus.Running)
+                    result = BehaviorNodeStatus.Running;
+
+                if (resultStatus == BehaviorNodeStatus.Failure)
+                    RestartNodesFromIndex(i + 1);
+                else continue;
+
+                return resultStatus;
+            }
+            return result;
         }
     }
 }
