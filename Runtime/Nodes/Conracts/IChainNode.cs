@@ -2,6 +2,6 @@
 {
     public interface IChainNode : IBehaviorNode
     {
-        public void AddNextChainLink(IChainNode nextNode);
+        void AddNextChainLink(IChainNode nextNode);
     }
 }

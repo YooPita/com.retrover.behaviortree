@@ -2,6 +2,6 @@
 {
     public interface INodeExecutor
     {
-        public BehaviorNodeStatus Execute();
+        BehaviorNodeStatus Execute();
     }
 }

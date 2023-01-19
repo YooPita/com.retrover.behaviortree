@@ -2,6 +2,6 @@
 {
     public interface IRollbackNode : IBehaviorNode
     {
-        public IRollbackNode Clone();
+        IRollbackNode Clone();
     }
 }

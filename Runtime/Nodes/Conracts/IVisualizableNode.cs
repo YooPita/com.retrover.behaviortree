@@ -2,6 +2,6 @@
 {
     public interface IVisualizableNode
     {
-        public BehaviorNodeVisualizationData GetVisualizationData();
+        BehaviorNodeVisualizationData GetVisualizationData();
     }
 }

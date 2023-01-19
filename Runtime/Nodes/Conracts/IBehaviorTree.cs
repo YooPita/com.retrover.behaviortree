@@ -2,7 +2,7 @@
 {
     public interface IBehaviorTree
     {
-        public void Visualize();
-        public bool Execute();
+        void Visualize();
+        bool Execute();
     }
 }

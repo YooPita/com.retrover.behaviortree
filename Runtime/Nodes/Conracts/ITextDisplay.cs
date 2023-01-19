@@ -2,6 +2,6 @@
 {
     public interface ITextDisplay
     {
-        public void Display(string text);
+        void Display(string text);
     }
 }

@@ -2,6 +2,6 @@
 {
     public interface IBehaviorTreeVisualizer
     {
-        public void Visualize(BehaviorNodeVisualizationData nodeData);
+        void Visualize(BehaviorNodeVisualizationData nodeData);
     }
 }

@@ -2,6 +2,6 @@
 {
     public interface INodeRestartable
     {
-        public void Restart();
+        void Restart();
     }
 }

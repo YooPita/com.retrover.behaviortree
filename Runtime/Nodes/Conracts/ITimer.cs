@@ -2,8 +2,8 @@
 {
     public interface ITimer
     {
-        public void StartIfNot();
-        public void Reset();
-        public bool IsEnded();
+        void StartIfNot();
+        void Reset();
+        bool IsEnded();
     }
 }
